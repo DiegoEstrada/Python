@@ -1,0 +1,80 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n %}
+{%  load static %}
+
+{% block title %}{% trans "Register for an account" %}{% endblock %}
+{% block body_class %}login-page{% endblock %}
+{% block body %}
+
+    <div class="login-box">
+        {% block logo %}
+        <div class="login-logo">
+            {# Mirrors block names used in _main_header.html #}
+            <a href="{% block logo_href %}/{% endblock %}">{% block logo_text %}<b>Presta</b>Autos{% endblock %}</a>
+            <br>
+            <span class="label label-default">Registro</span>
+            
+        </div>
+        {% endblock %}
+        <!-- /.login-logo -->
+        <div class="login-box-body">
+                <p class="text-justify ">Completa el formulario para comezar a utilizar nuestros automóviles </p>
+{% block login_form %}
+
+<form method="post" action="">
+    {% csrf_token %}
+    
+    <div class="form-group has-feedback">
+        <label   for="usrntarget">{% trans 'Ingresa tu nombre de usuario'%}</label>
+        <input  name="username" autofocus="true" maxlength="150" required="true"  id="usrntarget" class="form-control" placeholder="{% trans 'username' %}">
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+
+    </div>
+
+    <div class="form-group has-feedback">
+            <label   for="emailtarget">{% trans 'Ingresa tu dirección de correo electrónico'%}</label>
+            <input name="email"  type="email" required="true"  id="emailtarget" class="form-control" placeholder="{% trans 'email' %}">
+            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+    
+    </div>
+
+    <div class="form-group has-feedback">
+            <label   for="pass1target">{% trans 'Ingresa tu contraseña'%}</label>
+            <input name="password1"  type="password" required="true"  id="pass1target" class="form-control" placeholder="{% trans 'password' %}">
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+    
+    </div>
+
+    <div class="form-group has-feedback">
+            <label   for="pass2target">{% trans 'Ingresa tu contraseña'%}</label>
+            <input name="password2"  type="password" required="true"  id="pass2target" class="form-control" placeholder="{% trans 'password' %}">
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+    
+    </div>
+
+    <input type="submit" class="btn btn-primary btn-block btn-flat" value="{% trans 'Submit' %}" />
+    
+    <hr>
+    <div class="d-flex justify-content-between">
+        <div>
+                <h3> 
+                        <span class="text-center label label-default">Registrate usando redes sociales</span>
+                    </h3>
+        </div>
+        <div>
+            <a href="url 'social:begin' 'google-oauth2'">
+
+            <img src="{% static 'g.png' %}" alt="G+"  class ="img-circle center-block" style="width: 70px; height: 70px;"></a>
+            </a>
+            
+        </div>
+        
+    </div>
+    
+   
+
+</form>
+{% endblock login_form %}
+        </div>
+</div>
+{% endblock %}

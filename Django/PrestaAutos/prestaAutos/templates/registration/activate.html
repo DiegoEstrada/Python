@@ -1,0 +1,29 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Activation Failure" %}{% endblock %}
+
+{% block content %}
+
+<div class="login-box">
+    {% block logo %}
+    <div class="login-logo">
+        {# Mirrors block names used in _main_header.html #}
+        <a href="{% block logo_href %}/{% endblock %}">{% block logo_text %}<b>Presta</b>Autos{% endblock %}</a>
+    </div>
+    {% endblock %}
+    <!-- /.login-logo -->
+<div class="login-box-body">
+
+<p>{% trans "Account activation failed." %}</p>
+{% endblock %}
+
+
+{% comment %}
+**registration/activate.html**
+
+Used if account activation fails. With the default setup, has the following context:
+
+``activation_key``
+    The activation key used during the activation attempt.
+{% endcomment %}
